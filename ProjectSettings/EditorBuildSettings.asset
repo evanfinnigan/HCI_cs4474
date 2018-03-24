@@ -20,3 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Practice.unity
     guid: 2fa0b98965dc04e45ab56b2250ef727a
+  - enabled: 1
+    path: Assets/_Scenes/PracticeMenu.unity
+    guid: 0e49b476f09523044b9212c489d1d842
+  - enabled: 1
+    path: Assets/_Scenes/MatchMenu.unity
+    guid: a1f53164137c2b748b8b12f9630bb3fc
+  - enabled: 1
+    path: Assets/_Scenes/Are We Equal Menu.unity
+    guid: d13c658c5d73f4f4a836f9b92f4360d7

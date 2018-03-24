@@ -12,19 +12,19 @@ public class GameModeSelect : MonoBehaviour
     public void BtnPractice()
     {
         // Practice button logic
-        SceneManager.LoadScene("Practice");
+        SceneManager.LoadScene("PracticeMenu");
     }
 
     public void BtnMatch()
     {
         // Match Game button Logic
-        SceneManager.LoadScene("Match");
+        SceneManager.LoadScene("MatchMenu");
     }
 
     public void BtnEqual()
     {
         // Are We Equal button logic
-        SceneManager.LoadScene("Are We Equal");
+        SceneManager.LoadScene("Are We Equal Menu");
     }
 
     public void BtnInstructions()
