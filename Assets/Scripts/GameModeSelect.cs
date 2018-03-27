@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameModeSelect : MonoBehaviour
 {
-
+    public GameObject startCanvas;
     public GameObject instructionCanvas;
     public GameObject mainCanvas;
+
+    public void BtnStartGame()
+    {
+        mainCanvas.SetActive(true);
+        startCanvas.SetActive(false);
+    }
 
     public void BtnPractice()
     {
