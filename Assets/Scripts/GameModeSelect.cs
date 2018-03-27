@@ -9,10 +9,29 @@ public class GameModeSelect : MonoBehaviour
     public GameObject instructionCanvas;
     public GameObject mainCanvas;
 
+    private void Awake()
+    {
+        ShowStartScreen showStart = FindObjectOfType<ShowStartScreen>();
+        if (showStart != null)
+        {
+            if (showStart.started)
+            {
+                mainCanvas.SetActive(true);
+                startCanvas.SetActive(false);
+            }
+        }
+    }
+
     public void BtnStartGame()
     {
         mainCanvas.SetActive(true);
         startCanvas.SetActive(false);
+
+        ShowStartScreen showStart = FindObjectOfType<ShowStartScreen>();
+        if (showStart != null)
+        {
+            showStart.started = true;
+        }
     }
 
     public void BtnPractice()
