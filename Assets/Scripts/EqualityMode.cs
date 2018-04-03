@@ -17,13 +17,20 @@ public class EqualityMode : MonoBehaviour {
     int numerator;
     int denomenator;
 
+    public GameObject linePrefab;
+    public Transform lineParent;
+    public List<GameObject> lines;
+
 	// Use this for initialization
 	void Start () {
+        lines = new List<GameObject>();
         GenerateFraction();
 	}
 	
     public void GenerateFraction()
     {
+        ClearLines();
+
         denomenator = Random.Range(1, maxDenomenator);
         numerator = Random.Range(1, maxNumerator > denomenator ? denomenator : maxNumerator);
 
@@ -38,6 +45,35 @@ public class EqualityMode : MonoBehaviour {
 
         fractionText.text = "" + numerator + "/" + denomenator;
         fractionImage.fillAmount = ((float)pizzaNumerator) / denomenator;
+
+        GenerateLines();
+    }
+
+    public void GenerateLines()
+    {
+        if (denomenator == 1)
+        {
+            return;
+        }
+
+        for (int i = 0; i < denomenator; i++)
+        {
+            GameObject line = Instantiate(linePrefab, lineParent);
+            lines.Add(line);
+
+            float zRot = i * 360f / denomenator;
+
+            line.transform.Rotate(new Vector3(0, 0, zRot));
+        }
+    }
+
+    public void ClearLines()
+    {
+        foreach (GameObject line in lines.ToArray())
+        {
+            lines.Remove(line);
+            Destroy(line);
+        }
     }
 
 	public void BtnYes()
