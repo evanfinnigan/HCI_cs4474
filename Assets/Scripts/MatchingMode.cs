@@ -21,15 +21,109 @@ public class MatchingMode : MonoBehaviour {
 
     public Button resetButton;
 
+    CircleFraction selectedCircle;
+    NumberFraction selectedNumber;
+    bool circleSelected;
+    bool numberSelected;
+
+    public Text levelText;
+    int level;
+
     private void Start()
     {
+        level = 1;
+        levelText.text = "Level " + level;
+
+        circleSelected = false;
+        numberSelected = false;
         fractions = new List<GameObject>();
         GenerateFractions();
     }
 
     public void BtnReset()
     {
+        level = 1;
+        levelText.text = "Level " + level;
         GenerateFractions();
+    }
+
+    public void BtnSelectCircle(CircleFraction circle)
+    {
+        if (circleSelected && selectedCircle == circle)
+        {
+            selectedCircle.gameObject.GetComponent<Image>().color = Color.white;
+            circleSelected = false;
+            selectedCircle = null;
+        }
+        else
+        {
+            circleSelected = true;
+            selectedCircle = circle;
+            selectedCircle.gameObject.GetComponent<Image>().color = Color.red;
+        }
+
+        TestSelected();
+    }
+
+    public void BtnSelectNumber(NumberFraction number)
+    {
+        if (numberSelected && selectedNumber == number)
+        {
+            selectedNumber.gameObject.GetComponent<Image>().color = Color.white;
+            numberSelected = false;
+            selectedNumber = null;
+        }
+        else
+        {
+            numberSelected = true;
+            selectedNumber = number;
+            selectedNumber.gameObject.GetComponent<Image>().color = Color.red;
+        }
+
+        TestSelected();
+    }
+    
+    public void TestSelected()
+    {
+        if (circleSelected && numberSelected)
+        {
+            if (selectedCircle.numerator == selectedNumber.numerator && selectedCircle.denomenator == selectedNumber.denomenator)
+            {
+                Debug.Log("Correct!");
+                selectedCircle.gameObject.GetComponent<Button>().interactable = false;
+                selectedNumber.gameObject.GetComponent<Button>().interactable = false;
+                selectedCircle = null;
+                selectedNumber = null;
+                circleSelected = false;
+                numberSelected = false;
+
+                bool done = true;
+                foreach (Button button in grid.GetComponentsInChildren<Button>())
+                {
+                    if (button.interactable)
+                    {
+                        done = false;
+                        break;
+                    }
+                }
+                if (done)
+                {
+                    level++;
+                    levelText.text = "Level " + level;
+                    GenerateFractions();
+                }
+            }
+            else
+            {
+                Debug.Log("Incorrect! Try again!");
+                selectedCircle.gameObject.GetComponent<Image>().color = Color.white;
+                selectedNumber.gameObject.GetComponent<Image>().color = Color.white;
+                selectedCircle = null;
+                selectedNumber = null;
+                circleSelected = false;
+                numberSelected = false;
+            }
+        }
     }
 
     public void GenerateFractions()
@@ -51,10 +145,18 @@ public class MatchingMode : MonoBehaviour {
             Image fillImage = matchCircle.transform.Find("Fraction Image").GetComponent<Image>();
             fillImage.fillAmount = (float)numerator / denomenator;
 
+            CircleFraction circleFraction = matchCircle.GetComponent<CircleFraction>();
+            circleFraction.numerator = numerator;
+            circleFraction.denomenator = denomenator;
+
             GenerateLines(denomenator, matchCircle.GetComponentInChildren<Mask>().transform);
 
             GameObject matchNumber = Instantiate(matchNumberPrefab);
             matchNumber.GetComponentInChildren<Text>().text = "" + numerator + "/" + denomenator;
+
+            NumberFraction numberFraction = matchNumber.GetComponent<NumberFraction>();
+            numberFraction.numerator = numerator;
+            numberFraction.denomenator = denomenator;
 
             fractions.Add(matchCircle);
             fractions.Add(matchNumber);
