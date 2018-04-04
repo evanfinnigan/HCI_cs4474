@@ -49,9 +49,13 @@ public class MatchingMode : MonoBehaviour {
 
     public void BtnSelectCircle(CircleFraction circle)
     {
-        if (circleSelected && selectedCircle == circle)
+        if (circleSelected)
         {
             selectedCircle.gameObject.GetComponent<Image>().color = Color.white;
+        }
+
+        if (circleSelected && selectedCircle == circle)
+        {
             circleSelected = false;
             selectedCircle = null;
         }
@@ -67,9 +71,13 @@ public class MatchingMode : MonoBehaviour {
 
     public void BtnSelectNumber(NumberFraction number)
     {
-        if (numberSelected && selectedNumber == number)
+        if (numberSelected)
         {
             selectedNumber.gameObject.GetComponent<Image>().color = Color.white;
+        }
+
+        if (numberSelected && selectedNumber == number)
+        {
             numberSelected = false;
             selectedNumber = null;
         }
