@@ -18,6 +18,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/Match.unity
     guid: d768db1671a7aaf4eb4bbe5d4f1685b4
   - enabled: 1
+    path: Assets/_Scenes/Match (Intermediate).unity
+    guid: 644e952c40452534fba8c9d74bbdc4f8
+  - enabled: 1
+    path: Assets/_Scenes/Match (Difficult).unity
+    guid: eadf3bc5e53636d4f9a69139c2e216b7
+  - enabled: 1
     path: Assets/_Scenes/MatchMenu.unity
     guid: a1f53164137c2b748b8b12f9630bb3fc
   - enabled: 1
