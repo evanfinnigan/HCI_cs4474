@@ -12,6 +12,10 @@ public class PracticeMode : MonoBehaviour
     public Text numberText;
     public Text denomenatorText;
 
+    public GameObject linePrefab;
+    public Transform lineParent;
+    List<GameObject> lines;
+
     public int maxNumerator;
     public int maxDenomenator;
 
@@ -20,11 +24,14 @@ public class PracticeMode : MonoBehaviour
 
     public void Start()
     {
+        lines = new List<GameObject>();
         GenerateFraction();
     }
 
     private void GenerateFraction()
     {
+        ClearLines(lines);
+
         numberInput.text = "";
 
         denomenator = Random.Range(1, maxDenomenator);
@@ -33,6 +40,39 @@ public class PracticeMode : MonoBehaviour
         denomenatorText.text = "" + denomenator;
         numberText.text = "" + ((float)numerator) / denomenator;
         fractionImage.fillAmount = ((float)numerator) / denomenator;
+
+        lines = GenerateLines(denomenator, lineParent);
+    }
+
+    public List<GameObject> GenerateLines(int denomenator, Transform lineParent)
+    {
+        List<GameObject> lines = new List<GameObject>();
+
+        if (denomenator == 1)
+        {
+            return lines;
+        }
+
+        for (int i = 0; i < denomenator; i++)
+        {
+            GameObject line = Instantiate(linePrefab, lineParent);
+            lines.Add(line);
+
+            float zRot = i * 360f / denomenator;
+
+            line.transform.Rotate(new Vector3(0, 0, zRot));
+        }
+
+        return lines;
+    }
+
+    public void ClearLines(List<GameObject> lines)
+    {
+        foreach (GameObject line in lines.ToArray())
+        {
+            lines.Remove(line);
+            Destroy(line);
+        }
     }
 
     public void TestInput()
