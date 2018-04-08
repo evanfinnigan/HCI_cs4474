@@ -541,17 +541,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 242402550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17bd80aca9b1d2f4aa1fa69bf8c1daee, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a77b80f46e31aa46a8a563702d31906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 7129583}
-  matchCirclePrefab: {fileID: 1410086592481294, guid: 7e6044ef7a2e67348bf8cbb0a617af40,
-    type: 2}
   matchNumberPrefab: {fileID: 1023307128434068, guid: 10c25c606b61cf342992f7fe914f5cbb,
     type: 2}
-  linePrefab: {fileID: 1193879113771584, guid: 44ee57a40a4ea90469283b93e0a03882, type: 2}
   maxNumerator: 10
   maxDenomenator: 10
+  maxMultiplier: 100
   fractions: []
   resetButton: {fileID: 107016751}
   levelText: {fileID: 2051430235}
@@ -1908,7 +1906,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 242402551}
+      - m_Target: {fileID: 0}
         m_MethodName: BtnReset
         m_Mode: 1
         m_Arguments:
