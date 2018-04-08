@@ -549,7 +549,7 @@ MonoBehaviour:
     type: 2}
   maxNumerator: 10
   maxDenomenator: 10
-  maxMultiplier: 100
+  maxMultiplier: 10
   fractions: []
   resetButton: {fileID: 107016751}
   levelText: {fileID: 2051430235}

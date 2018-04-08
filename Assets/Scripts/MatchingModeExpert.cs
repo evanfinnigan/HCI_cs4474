@@ -136,7 +136,7 @@ public class MatchingModeExpert : MonoBehaviour
             int numerator = Random.Range(1, maxNumerator);
 
             GameObject matchNumber1 = Instantiate(matchNumberPrefab);
-            int multiplier = Random.Range(2, maxMultiplier);
+            int multiplier = Random.Range(2, maxMultiplier * level);
             matchNumber1.GetComponentInChildren<Text>().text = "" + multiplier * numerator + "/" + multiplier * denomenator;
 
             NumberFraction numberFraction1 = matchNumber1.GetComponent<NumberFraction>();
