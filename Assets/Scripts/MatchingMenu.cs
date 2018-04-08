@@ -17,13 +17,13 @@ public class MatchingMenu : MonoBehaviour {
     public void BtnIntermediate()
     {
         // Intermediate button logic
-        SceneManager.LoadScene("Match");
+        SceneManager.LoadScene("Match (Intermediate)");
     }
 
     public void BtnExpert()
     {
         // Expert button logic
-        SceneManager.LoadScene("Match");
+        SceneManager.LoadScene("Match (Difficult)");
     }
 
     public void BtnReturnToGameSelect()
