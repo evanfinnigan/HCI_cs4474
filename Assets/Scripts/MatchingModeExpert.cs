@@ -133,7 +133,7 @@ public class MatchingModeExpert : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             int denomenator = Random.Range(1, maxDenomenator);
-            int numerator = Random.Range(1, maxNumerator > denomenator ? denomenator : maxNumerator);
+            int numerator = Random.Range(1, maxNumerator);
 
             GameObject matchNumber1 = Instantiate(matchNumberPrefab);
             int multiplier = Random.Range(2, maxMultiplier);
