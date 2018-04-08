@@ -109,7 +109,7 @@ public class EqualityMode : MonoBehaviour {
 
     public void BtnGameSelect()
     {
-        SceneManager.LoadScene("GameModeSelect");
+        SceneManager.LoadScene("Game Mode Select");
     }
 }
 
