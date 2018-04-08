@@ -11,19 +11,19 @@ public class MatchingMenu : MonoBehaviour {
     public void BtnBeginner()
     {
         // Beginner button logic
-        SceneManager.LoadScene("Practice");
+        SceneManager.LoadScene("Match");
     }
 
     public void BtnIntermediate()
     {
         // Intermediate button logic
-        SceneManager.LoadScene("Practice");
+        SceneManager.LoadScene("Match");
     }
 
     public void BtnExpert()
     {
         // Expert button logic
-        SceneManager.LoadScene("Practice");
+        SceneManager.LoadScene("Match");
     }
 
     public void BtnReturnToGameSelect()
