@@ -1117,8 +1117,8 @@ MonoBehaviour:
   audioCorrect: {fileID: 89412922}
   audioIncorrect: {fileID: 106759619}
   linePrefab: {fileID: 1193879113771584, guid: 44ee57a40a4ea90469283b93e0a03882, type: 2}
-  maxNumerator: 10
-  maxDenomenator: 10
+  maxNumerator: 20
+  maxDenomenator: 20
   fractions: []
   corrections: []
   resetButton: {fileID: 1431940670}

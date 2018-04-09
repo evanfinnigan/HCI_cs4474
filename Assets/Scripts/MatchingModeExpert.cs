@@ -113,6 +113,8 @@ public class MatchingModeExpert : MonoBehaviour
                 audioCorrect.Play();
                 selectedNumber1.gameObject.GetComponent<Image>().color = Color.green;
                 selectedNumber2.gameObject.GetComponent<Image>().color = Color.green;
+                selectedNumber1.gameObject.transform.Find("Correct").gameObject.SetActive(true);
+                selectedNumber2.gameObject.transform.Find("Correct").gameObject.SetActive(true);
                 selectedNumber1.gameObject.GetComponent<Button>().interactable = false;
                 selectedNumber2.gameObject.GetComponent<Button>().interactable = false;
                 selectedNumber1 = null;
