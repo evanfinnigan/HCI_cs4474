@@ -9,6 +9,8 @@ public class MatchingModeExpert : MonoBehaviour
     public Transform grid;
 
     public GameObject matchNumberPrefab;
+    public AudioSource audioCorrect;
+    public AudioSource audioIncorrect;
 
     public int maxNumerator;
     public int maxDenomenator;
@@ -108,6 +110,7 @@ public class MatchingModeExpert : MonoBehaviour
             if (selectedNumber1.numerator == selectedNumber2.numerator && selectedNumber1.denomenator == selectedNumber2.denomenator)
             {
                 Debug.Log("Correct!");
+                audioCorrect.Play();
                 selectedNumber1.gameObject.GetComponent<Image>().color = Color.green;
                 selectedNumber2.gameObject.GetComponent<Image>().color = Color.green;
                 selectedNumber1.gameObject.GetComponent<Button>().interactable = false;
@@ -137,6 +140,7 @@ public class MatchingModeExpert : MonoBehaviour
             else
             {
                 Debug.Log("Incorrect! Try again!");
+                audioIncorrect.Play();
                 prevSelected = true;
 
                 prevNumber1 = selectedNumber1;

@@ -9,6 +9,8 @@ public class MatchingMode : MonoBehaviour {
 
     public GameObject matchCirclePrefab;
     public GameObject matchNumberPrefab;
+    public AudioSource audioCorrect;
+    public AudioSource audioIncorrect;
 
     public GameObject linePrefab;
 
@@ -144,6 +146,7 @@ public class MatchingMode : MonoBehaviour {
             if (selectedCircle.numerator == selectedNumber.numerator && selectedCircle.denomenator == selectedNumber.denomenator)
             {
                 Debug.Log("Correct!");
+                audioCorrect.Play();
                 selectedCircle.gameObject.GetComponent<Button>().interactable = false;
                 selectedCircle.gameObject.transform.Find("Fraction Image").gameObject.SetActive(false);
                 selectedCircle.gameObject.transform.Find("Correct").gameObject.SetActive(true);
@@ -179,7 +182,7 @@ public class MatchingMode : MonoBehaviour {
             {
                 Debug.Log("Incorrect! Try again!");
 
-
+                audioIncorrect.Play();
                 selectedCircle.gameObject.GetComponent<Image>().color = Color.red;
                 selectedNumber.gameObject.GetComponent<Image>().color = Color.red;
                 prevCircle = selectedCircle;
