@@ -145,7 +145,7 @@ public class MatchingMode : MonoBehaviour {
             
             if (selectedCircle.numerator == selectedNumber.numerator && selectedCircle.denomenator == selectedNumber.denomenator
                 ||
-                Mathf.Abs(((float)selectedCircle.numerator / selectedCircle.denomenator) - ((float)selectedNumber.numerator / selectedNumber.denomenator)) < 0.001)
+                Mathf.Abs(((float)selectedCircle.numerator / selectedCircle.denomenator) - ((float)selectedNumber.numerator / selectedNumber.denomenator)) < 0.0001)
                 {
                 Debug.Log("Correct!");
                 audioCorrect.Play();
