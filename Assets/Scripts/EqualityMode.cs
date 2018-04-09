@@ -9,6 +9,9 @@ public class EqualityMode : MonoBehaviour {
     public Image fractionImage;
     public Text fractionText;
 
+    public AudioSource audioCorrect;
+    public AudioSource audioIncorrect;
+
     public int maxNumerator;
     public int maxDenomenator;
 
@@ -81,11 +84,13 @@ public class EqualityMode : MonoBehaviour {
         if (pizzaNumerator == numerator)
         {
             Debug.Log("Correct!");
+            audioCorrect.Play();
             GenerateFraction();
         }
         else
         {
             Debug.Log("Incorrect! Try Again!");
+            audioIncorrect.Play();
         }
     }
 
@@ -94,11 +99,13 @@ public class EqualityMode : MonoBehaviour {
         if (pizzaNumerator != numerator)
         {
             Debug.Log("Correct!");
+            audioCorrect.Play();
             GenerateFraction();
         }
         else
         {
             Debug.Log("Incorrect! Try Again!");
+            audioIncorrect.Play();
         }
     }
 
