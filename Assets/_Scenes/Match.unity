@@ -3294,14 +3294,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 551948385}
-  matchCirclePrefab: {fileID: 1182889299137312, guid: e0f96385dffe62a4d8d55c0dc614e680,
+  matchCirclePrefab: {fileID: 1170512126904294, guid: e0f96385dffe62a4d8d55c0dc614e680,
     type: 2}
-  matchNumberPrefab: {fileID: 1391716098069426, guid: da6b89298bf6cf04fa53005b2a9ac04b,
+  matchNumberPrefab: {fileID: 1814077958451520, guid: da6b89298bf6cf04fa53005b2a9ac04b,
     type: 2}
   linePrefab: {fileID: 1193879113771584, guid: 44ee57a40a4ea90469283b93e0a03882, type: 2}
   maxNumerator: 10
   maxDenomenator: 10
   fractions: []
+  corrections: []
   resetButton: {fileID: 1080946102}
   levelText: {fileID: 717388999}
 --- !u!4 &2067993296

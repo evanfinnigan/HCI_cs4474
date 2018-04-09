@@ -16,6 +16,7 @@ public class MatchingMode : MonoBehaviour {
     public int maxDenomenator;
 
     public List<GameObject> fractions;
+    public List<GameObject> corrections;
 
     public static bool generating = false;
 
@@ -23,8 +24,15 @@ public class MatchingMode : MonoBehaviour {
 
     CircleFraction selectedCircle;
     NumberFraction selectedNumber;
+
+    CircleFraction prevCircle;
+    NumberFraction prevNumber;
+
     bool circleSelected;
     bool numberSelected;
+
+    bool prevSelCir = false;
+    bool prevSelNum = false;
 
     public Text levelText;
     int level;
@@ -51,19 +59,37 @@ public class MatchingMode : MonoBehaviour {
     {
         if (circleSelected)
         {
+            if (prevSelCir)
+            {
+                prevNumber.gameObject.GetComponent<Image>().color = Color.white;
+
+                prevCircle.gameObject.GetComponent<Image>().color = Color.white;
+            }
             selectedCircle.gameObject.GetComponent<Image>().color = Color.white;
         }
 
         if (circleSelected && selectedCircle == circle)
         {
+            if (prevSelCir)
+            {
+                prevNumber.gameObject.GetComponent<Image>().color = Color.white;
+
+                prevCircle.gameObject.GetComponent<Image>().color = Color.white;
+            }
             circleSelected = false;
             selectedCircle = null;
         }
         else
         {
+            if (prevSelCir)
+            {
+                prevNumber.gameObject.GetComponent<Image>().color = Color.white;
+
+                prevCircle.gameObject.GetComponent<Image>().color = Color.white;
+            }
             circleSelected = true;
             selectedCircle = circle;
-            selectedCircle.gameObject.GetComponent<Image>().color = Color.red;
+            selectedCircle.gameObject.GetComponent<Image>().color = Color.yellow;
         }
 
         TestSelected();
@@ -73,19 +99,38 @@ public class MatchingMode : MonoBehaviour {
     {
         if (numberSelected)
         {
+            if (prevSelNum)
+            {
+                prevCircle.gameObject.GetComponent<Image>().color = Color.white;
+
+                prevNumber.gameObject.GetComponent<Image>().color = Color.white;
+            }
             selectedNumber.gameObject.GetComponent<Image>().color = Color.white;
         }
 
         if (numberSelected && selectedNumber == number)
         {
+            if (prevSelNum)
+            {
+                prevCircle.gameObject.GetComponent<Image>().color = Color.white;
+
+                prevNumber.gameObject.GetComponent<Image>().color = Color.white;
+            }
             numberSelected = false;
             selectedNumber = null;
+
         }
         else
         {
+            if (prevSelNum)
+            {
+                prevCircle.gameObject.GetComponent<Image>().color = Color.white;
+
+                prevNumber.gameObject.GetComponent<Image>().color = Color.white;
+            }
             numberSelected = true;
             selectedNumber = number;
-            selectedNumber.gameObject.GetComponent<Image>().color = Color.red;
+            selectedNumber.gameObject.GetComponent<Image>().color = Color.yellow;
         }
 
         TestSelected();
@@ -95,16 +140,25 @@ public class MatchingMode : MonoBehaviour {
     {
         if (circleSelected && numberSelected)
         {
+            
             if (selectedCircle.numerator == selectedNumber.numerator && selectedCircle.denomenator == selectedNumber.denomenator)
             {
                 Debug.Log("Correct!");
                 selectedCircle.gameObject.GetComponent<Button>().interactable = false;
+                selectedCircle.gameObject.transform.Find("Fraction Image").gameObject.SetActive(false);
+                selectedCircle.gameObject.transform.Find("Correct").gameObject.SetActive(true);
+                selectedCircle.gameObject.GetComponent<Image>().color = Color.green;
+
                 selectedNumber.gameObject.GetComponent<Button>().interactable = false;
+                selectedNumber.gameObject.transform.Find("Correct").gameObject.SetActive(true);
+                selectedNumber.gameObject.GetComponent<Image>().color = Color.green;
+
                 selectedCircle = null;
                 selectedNumber = null;
                 circleSelected = false;
                 numberSelected = false;
-
+                prevSelCir = false;
+                prevSelNum = false;
                 bool done = true;
                 foreach (Button button in grid.GetComponentsInChildren<Button>())
                 {
@@ -124,8 +178,16 @@ public class MatchingMode : MonoBehaviour {
             else
             {
                 Debug.Log("Incorrect! Try again!");
-                selectedCircle.gameObject.GetComponent<Image>().color = Color.white;
-                selectedNumber.gameObject.GetComponent<Image>().color = Color.white;
+
+
+                selectedCircle.gameObject.GetComponent<Image>().color = Color.red;
+                selectedNumber.gameObject.GetComponent<Image>().color = Color.red;
+                prevCircle = selectedCircle;
+                prevNumber = selectedNumber;
+
+                prevSelCir = true;
+                prevSelNum = true;
+
                 selectedCircle = null;
                 selectedNumber = null;
                 circleSelected = false;
@@ -168,6 +230,7 @@ public class MatchingMode : MonoBehaviour {
 
             fractions.Add(matchCircle);
             fractions.Add(matchNumber);
+
         }
 
         Shuffle(fractions, new System.Random());

@@ -26,6 +26,10 @@ public class MatchingModeExpert : MonoBehaviour
     bool number1Selected;
     bool number2Selected;
 
+    NumberFraction prevNumber1;
+    NumberFraction prevNumber2;
+    bool prevSelected = false;
+
     public Text levelText;
     int level;
 
@@ -51,27 +55,47 @@ public class MatchingModeExpert : MonoBehaviour
     {
         if (number1Selected && selectedNumber1 == number)
         {
+            if (prevSelected)
+            {
+                prevNumber1.gameObject.GetComponent<Image>().color = Color.white;
+                prevNumber2.gameObject.GetComponent<Image>().color = Color.white;
+            }
             selectedNumber1.gameObject.GetComponent<Image>().color = Color.white;
             number1Selected = false;
             selectedNumber1 = null;
         }
         else if (number2Selected && selectedNumber2 == number)
         {
+            if (prevSelected)
+            {
+                prevNumber1.gameObject.GetComponent<Image>().color = Color.white;
+                prevNumber2.gameObject.GetComponent<Image>().color = Color.white;
+            }
             selectedNumber2.gameObject.GetComponent<Image>().color = Color.white;
             number2Selected = false;
             selectedNumber2 = null;
         }
         else if (!number1Selected)
         {
+            if (prevSelected)
+            {
+                prevNumber1.gameObject.GetComponent<Image>().color = Color.white;
+                prevNumber2.gameObject.GetComponent<Image>().color = Color.white;
+            }
             number1Selected = true;
             selectedNumber1 = number;
-            selectedNumber1.gameObject.GetComponent<Image>().color = Color.red;
+            selectedNumber1.gameObject.GetComponent<Image>().color = Color.yellow;
         }
         else if (!number2Selected)
         {
+            if (prevSelected)
+            {
+                prevNumber1.gameObject.GetComponent<Image>().color = Color.white;
+                prevNumber2.gameObject.GetComponent<Image>().color = Color.white;
+            }
             number2Selected = true;
             selectedNumber2 = number;
-            selectedNumber2.gameObject.GetComponent<Image>().color = Color.red;
+            selectedNumber2.gameObject.GetComponent<Image>().color = Color.yellow;
         }
 
         TestSelected();
@@ -84,12 +108,15 @@ public class MatchingModeExpert : MonoBehaviour
             if (selectedNumber1.numerator == selectedNumber2.numerator && selectedNumber1.denomenator == selectedNumber2.denomenator)
             {
                 Debug.Log("Correct!");
+                selectedNumber1.gameObject.GetComponent<Image>().color = Color.green;
+                selectedNumber2.gameObject.GetComponent<Image>().color = Color.green;
                 selectedNumber1.gameObject.GetComponent<Button>().interactable = false;
                 selectedNumber2.gameObject.GetComponent<Button>().interactable = false;
                 selectedNumber1 = null;
                 selectedNumber2 = null;
                 number1Selected = false;
                 number2Selected = false;
+                prevSelected = false;
 
                 bool done = true;
                 foreach (Button button in grid.GetComponentsInChildren<Button>())
@@ -110,8 +137,13 @@ public class MatchingModeExpert : MonoBehaviour
             else
             {
                 Debug.Log("Incorrect! Try again!");
-                selectedNumber1.gameObject.GetComponent<Image>().color = Color.white;
-                selectedNumber2.gameObject.GetComponent<Image>().color = Color.white;
+                prevSelected = true;
+
+                prevNumber1 = selectedNumber1;
+                prevNumber2 = selectedNumber2;
+                
+                selectedNumber1.gameObject.GetComponent<Image>().color = Color.red;
+                selectedNumber2.gameObject.GetComponent<Image>().color = Color.red;
                 selectedNumber1 = null;
                 selectedNumber2 = null;
                 number1Selected = false;
