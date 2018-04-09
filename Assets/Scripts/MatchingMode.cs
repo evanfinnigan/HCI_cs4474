@@ -143,8 +143,10 @@ public class MatchingMode : MonoBehaviour {
         if (circleSelected && numberSelected)
         {
             
-            if (selectedCircle.numerator == selectedNumber.numerator && selectedCircle.denomenator == selectedNumber.denomenator)
-            {
+            if (selectedCircle.numerator == selectedNumber.numerator && selectedCircle.denomenator == selectedNumber.denomenator
+                ||
+                Mathf.Abs(((float)selectedCircle.numerator / selectedCircle.denomenator) - ((float)selectedNumber.numerator / selectedNumber.denomenator)) < 0.001)
+                {
                 Debug.Log("Correct!");
                 audioCorrect.Play();
                 selectedCircle.gameObject.GetComponent<Button>().interactable = false;

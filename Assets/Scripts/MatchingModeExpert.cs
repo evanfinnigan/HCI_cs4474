@@ -107,7 +107,9 @@ public class MatchingModeExpert : MonoBehaviour
     {
         if (number1Selected && number2Selected)
         {
-            if (selectedNumber1.numerator == selectedNumber2.numerator && selectedNumber1.denomenator == selectedNumber2.denomenator)
+            if (selectedNumber1.numerator == selectedNumber2.numerator && selectedNumber1.denomenator == selectedNumber2.denomenator
+                ||
+                Mathf.Abs(((float)selectedNumber1.numerator/selectedNumber1.denomenator) - ((float)selectedNumber2.numerator/selectedNumber2.denomenator)) < 0.0001)
             {
                 Debug.Log("Correct!");
                 audioCorrect.Play();
