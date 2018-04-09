@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4158260358272594}
   - component: {fileID: 82798611487488224}
   m_Layer: 0
-  m_Name: Return to Game
+  m_Name: ClickSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -445,7 +445,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: f7f104654bf8dc247862bb713cf13b0d, type: 3}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -455,7 +455,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Return to \nGame Select Screen"
+  m_Text: "Return to \nMain Menu"
 --- !u!222 &121133507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: f7f104654bf8dc247862bb713cf13b0d, type: 3}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: f7f104654bf8dc247862bb713cf13b0d, type: 3}
     m_FontSize: 14
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
