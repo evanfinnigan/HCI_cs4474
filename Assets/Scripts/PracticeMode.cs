@@ -11,7 +11,8 @@ public class PracticeMode : MonoBehaviour
     public InputField numberInput;
     public Text numberText;
     public Text denomenatorText;
-
+    public AudioSource audioCorrect;
+    public AudioSource audioIncorrect;
     public GameObject linePrefab;
     public Transform lineParent;
     List<GameObject> lines;
@@ -82,11 +83,13 @@ public class PracticeMode : MonoBehaviour
         if (userInput == numerator)
         {
             Debug.Log("Correct!");
+            audioCorrect.Play();
             GenerateFraction();
         }
         else
         {
             Debug.Log("Incorrect! Try again!");
+            audioIncorrect.Play();
         }
     }
 

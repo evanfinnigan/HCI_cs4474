@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 32f45bf348563c649af8c4650bcbf0d6
+labels:
+- Audio
+timeCreated: 1432001479
+licenseType: Store
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: puzzle_user_interface_sounds
+  assetBundleVariant: 

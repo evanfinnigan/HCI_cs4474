@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: f1311d3c01716074b9dc62d8efcd1212
+labels:
+- Free
+- classical
+- audio
+- music
+- covers
+- orchestral
+- versions
+- Collection
+- Bach
+- Bartok
+timeCreated: 1459778776
+licenseType: Store
+AudioImporter:
+  serializedVersion: 6
+  defaultSettings:
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 1
+    conversionMode: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  preloadAudioData: 1
+  loadInBackground: 0
+  3D: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
